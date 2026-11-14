@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#120d1c" />
+  <meta name="description" content="Halcyon is a dreamy character-creator romance game. Shape the girl from the edge of sleep, then share five unforgettable nights." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Halcyon — a dream girl story</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <svg class="svg-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5c.5 5.5 4 9 9.5 9.5-5.5.5-9 4-9.5 9.5-.5-5.5-4-9-9.5-9.5 5.5-.5 9-4 9.5-9.5Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-6 6 6-6 6"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18 6a8.5 8.5 0 0 1 0 12"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="m16 9 5 6m0-6-5 6"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M8 21H3v-5m13 5h5v-5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"/></symbol>
+  </svg>
+
+  <div class="world" aria-hidden="true">
+    <div class="aurora aurora-a"></div>
+    <div class="aurora aurora-b"></div>
+    <div class="aurora aurora-c"></div>
+    <div class="grain"></div>
+    <div class="stars" id="stars"></div>
+  </div>
+
+  <header class="topbar" id="topbar">
+    <button class="brand" id="brandBtn" type="button" aria-label="Halcyon home">
+      <span class="brand-mark"><svg class="icon"><use href="#i-moon"/></svg></span>
+      <span class="brand-word">HALCYON</span>
+    </button>
+    <div class="top-meta" id="topMeta">
+      <span class="top-dot"></span>
+      <span id="topMetaText">a dream girl story</span>
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn" id="soundBtn" type="button" aria-label="Turn sound off" title="Sound">
+        <svg class="icon icon-sound"><use href="#i-sound"/></svg>
+        <svg class="icon icon-muted"><use href="#i-mute"/></svg>
+      </button>
+      <button class="icon-btn" id="fullBtn" type="button" aria-label="Enter fullscreen" title="Fullscreen">
+        <svg class="icon"><use href="#i-expand"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- TITLE -->
+    <section class="screen title-screen is-active" id="titleScreen" aria-label="Title screen">
+      <div class="title-copy">
+        <p class="eyebrow reveal-1"><span class="eyebrow-line"></span>An interactive dream · 18+</p>
+        <h1 class="wordmark reveal-2">HALCYON<span class="wordmark-dot">.</span></h1>
+        <p class="title-tag reveal-3">Some girls are dreamed.<br /><em>She is chosen.</em></p>
+        <p class="title-body reveal-4">Shape the woman waiting at the edge of sleep. Then share five nights in a city that only exists between heartbeats.</p>
+        <div class="title-actions reveal-5">
+          <button class="btn btn-primary btn-large" id="startBtn" type="button">
+            <span>Dream her into being</span>
+            <svg class="icon"><use href="#i-arrow"/></svg>
+          </button>
+          <button class="btn btn-ghost" id="continueBtn" type="button" hidden>
+            <svg class="icon"><use href="#i-moon"/></svg>
+            <span>Continue the dream</span>
+          </button>
+        </div>
+        <p class="fineprint reveal-6">All characters are 21+. Intimacy is consensual and softly faded to black.</p>
+      </div>
+
+      <div class="title-art reveal-art" id="titleArt">
+        <div class="title-orbit orbit-1"></div>
+        <div class="title-orbit orbit-2"></div>
+        <div class="title-portrait" id="titlePortrait"></div>
+        <div class="float-card float-card-a">
+          <span class="float-icon"><svg class="icon"><use href="#i-spark"/></svg></span>
+          <span><strong>5 nights</strong><small>one impossible city</small></span>
+        </div>
+        <div class="float-card float-card-b">
+          <span class="heart-beat"><svg class="icon"><use href="#i-heart"/></svg></span>
+          <span><strong>made for you</strong><small>every detail matters</small></span>
+        </div>
+        <div class="title-caption">
+          <span class="caption-index">01</span>
+          <span class="caption-line"></span>
+          <span>the dreamer's girl</span>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span></span>press begin</div>
+    </section>
+
+    <!-- CREATOR -->
+    <section class="screen creator-screen" id="creatorScreen" aria-label="Create your dream girl">
+      <div class="creator-header">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-line"></span>The dream workshop</p>
+          <h2>Make her <em>yours.</em></h2>
+        </div>
+        <p class="creator-intro">No two dreams look alike. Choose the details you'll remember when you wake.</p>
+      </div>
+
+      <div class="creator-grid">
+        <aside class="preview-panel">
+          <div class="preview-glow"></div>
+          <div class="preview-art" id="creatorPortrait"></div>
+          <div class="preview-plaque">
+            <div>
+              <span class="plaque-label">Her name</span>
+              <strong id="designName">Lia</strong>
+            </div>
+            <span class="vibe-pill" id="designVibe">Dreamy</span>
+          </div>
+          <div class="preview-quote" id="designQuote">“I was hoping you'd imagine me.”</div>
+          <span class="frame-corner tl"></span><span class="frame-corner tr"></span>
+          <span class="frame-corner bl"></span><span class="frame-corner br"></span>
+        </aside>
+
+        <div class="creator-controls">
+          <div class="control-block name-block">
+            <label for="nameInput">Her name</label>
+            <div class="name-row">
+              <input id="nameInput" type="text" value="Lia" maxlength="16" autocomplete="off" spellcheck="false" aria-label="Her name" />
+              <button class="dice-btn" id="nameDice" type="button" aria-label="Suggest a name" title="Surprise me">
+                <svg class="icon"><use href="#i-spark"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="control-block">
+            <div class="control-heading"><span>Skin</span><span class="control-value" id="skinValue">Warm sand</span></div>
+            <div class="swatch-row" id="skinOptions" role="group" aria-label="Skin tone"></div>
+          </div>
+
+          <div class="control-block">
+            <div class="control-heading"><span>Hair</span><span class="control-value" id="hairValue">Midnight wave</span></div>
+            <div class="style-grid" id="hairStyleOptions" role="group" aria-label="Hair style"></div>
+            <div class="swatch-row swatch-row--hair" id="hairColorOptions" role="group" aria-label="Hair colour"></div>
+          </div>
+
+          <div class="control-block">
+            <div class="control-heading"><span>Eyes</span><span class="control-value" id="eyeValue">Amber</span></div>
+            <div class="swatch-row swatch-row--eyes" id="eyeOptions" role="group" aria-label="Eye colour"></div>
+          </div>
+
+          <div class="control-block">
+            <div class="control-heading"><span>Her style</span><span class="control-value" id="outfitValue">Silk & smoke</span></div>
+            <div class="style-grid style-grid--outfit" id="outfitOptions" role="group" aria-label="Outfit"></div>
+          </div>
+
+          <div class="control-block">
+            <div class="control-heading"><span>Her energy</span><span class="control-value" id="personalityValue">Dreamy</span></div>
+            <div class="personality-row" id="personalityOptions" role="group" aria-label="Personality"></div>
+          </div>
+
+          <div class="creator-footer">
+            <button class="btn btn-primary btn-large" id="meetBtn" type="button">
+              <span>Meet her under the stars</span>
+              <svg class="icon"><use href="#i-arrow"/></svg>
+            </button>
+            <p class="fineprint">You can change her look between dreams.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section class="screen game-screen" id="gameScreen" aria-label="Story">
+      <div class="game-grid">
+        <section class="scene-panel" id="scenePanel" aria-label="Scene">
+          <div class="scene-wash"></div>
+          <div class="scene-stars" id="sceneStars"></div>
+          <div class="scene-moon"></div>
+          <div class="scene-skyline"></div>
+          <div class="scene-portrait" id="gamePortrait"></div>
+          <div class="scene-vignette"></div>
+          <div class="scene-top">
+            <div class="scene-tags">
+              <span class="scene-place" id="scenePlace">The rooftop garden</span>
+              <span class="scene-time" id="sceneTime">00:13</span>
+            </div>
+            <button class="glass-btn" id="menuBtn" type="button" aria-label="Open menu">
+              <span class="glass-dot"></span><span>menu</span>
+            </button>
+          </div>
+          <div class="affection-widget">
+            <div class="affection-top">
+              <span><svg class="icon"><use href="#i-heart"/></svg> chemistry</span>
+              <strong id="affectionText">0%</strong>
+            </div>
+            <div class="affection-track"><span id="affectionFill"></span></div>
+            <div class="affection-label" id="affectionLabel">a quiet spark</div>
+          </div>
+          <div class="scene-foot">
+            <span id="nightStamp">night 01</span>
+            <span class="scene-foot-line"></span>
+            <span id="sceneMood">the city is listening</span>
+          </div>
+        </section>
+
+        <section class="dialogue-panel" id="dialoguePanel" aria-live="polite">
+          <div class="chapter-row">
+            <div>
+              <p class="eyebrow chapter-kicker" id="chapterKicker">night one · the invitation</p>
+              <h2 class="chapter-title" id="chapterTitle">The rooftop garden</h2>
+            </div>
+            <button class="text-btn" id="restartBtn" type="button" title="Start over">
+              <span>restart</span>
+            </button>
+          </div>
+
+          <div class="dialogue-scroll" id="dialogueScroll">
+            <div class="speaker-row" id="speakerRow">
+              <span class="speaker-avatar" id="speakerAvatar">L</span>
+              <span class="speaker-name" id="speakerName">Lia</span>
+              <span class="speaker-tag" id="speakerTag">the girl from the dream</span>
+            </div>
+            <p class="dialogue-text" id="dialogueText"></p>
+            <p class="narrator-text" id="narratorText" hidden></p>
+          </div>
+
+          <div class="choices-wrap" id="choicesWrap">
+            <div class="choice-heading"><span>What do you say?</span><span class="choice-rule"></span></div>
+            <div class="choices" id="choices"></div>
+          </div>
+
+          <div class="continue-wrap" id="continueWrap" hidden>
+            <button class="btn btn-primary btn-wide" id="continueStoryBtn" type="button">
+              <span id="continueStoryLabel">Keep the night going</span>
+              <svg class="icon"><use href="#i-arrow"/></svg>
+            </button>
+          </div>
+
+          <div class="dialogue-foot">
+            <span id="progressDots" class="progress-dots" aria-hidden="true"></span>
+            <span class="save-state"><span class="save-dot"></span><span id="saveStateText">autosaved</span></span>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ENDING -->
+    <section class="screen ending-screen" id="endingScreen" aria-label="Ending">
+      <div class="ending-grid">
+        <div class="ending-art" id="endingPortrait"></div>
+        <div class="ending-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span><span id="endingEra">the morning after</span></p>
+          <h2 id="endingTitle">Something<br /><em>real.</em></h2>
+          <p class="ending-body" id="endingBody"></p>
+          <div class="ending-stats">
+            <div><strong id="endingChemistry">0%</strong><span>chemistry</span></div>
+            <div><strong>5</strong><span>nights together</span></div>
+            <div><strong id="endingMemories">5</strong><span>moments kept</span></div>
+          </div>
+          <div class="memory-strip" id="memoryStrip"></div>
+          <div class="ending-actions">
+            <button class="btn btn-primary" id="againBtn" type="button">
+              <svg class="icon"><use href="#i-moon"/></svg><span>Dream again</span>
+            </button>
+            <button class="btn btn-ghost" id="homeBtn" type="button"><span>Return to title</span></button>
+          </div>
+          <p class="fineprint">Every dream can be remade. Every choice is kept.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button>
+      <p class="eyebrow" id="modalKicker">a gentle pause</p>
+      <h3 id="modalTitle">Leave the dream?</h3>
+      <p id="modalBody">Your progress is saved. You can pick up where you left off.</p>
+      <div class="modal-actions" id="modalActions"></div>
+    </div>
+  </div>
+
+  <script src="./app.js" type="module"></script>
+</body>
+</html>

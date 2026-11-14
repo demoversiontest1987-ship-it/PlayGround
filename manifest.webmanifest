@@ -1,0 +1,19 @@
+{
+  "name": "Halcyon — a dream girl story",
+  "short_name": "Halcyon",
+  "description": "Create an adult dream girl and share five tender nights in an interactive romance story.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#120d1c",
+  "theme_color": "#120d1c",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
